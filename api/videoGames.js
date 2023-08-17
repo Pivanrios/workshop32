@@ -53,6 +53,13 @@ router.put('/:id', async (req, res, next) => {
 // DELETE - /api/video-games/:id - delete a single video game by id
 router.delete('/:id', async (req, res, next) => {
     // LOGIC GOES HERE
+    try {
+        const id = req.params.id;
+        const videoGame = await deleteVideoGame(id);
+        res.send("file deleted")
+    } catch (error) {
+        throw error;
+    }
 });
 
 module.exports = router;

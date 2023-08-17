@@ -51,6 +51,8 @@ async function updateVideoGame(id, fields = {}) {
 // DELETE - /api/video-games/:id - delete a single video game by id
 async function deleteVideoGame(id) {
     // LOGIC GOES HERE
+    console.log("delete:", id);
+    await client.query(`DELETE FROM videoGames WHERE id= $1`,[id]);
 }
 
 module.exports = {
