@@ -12,17 +12,21 @@ const { getAllVideoGames,
 // GET - /api/video-games - get all video games
 router.get('/', async (req, res, next) => {
     try {
+        console.log("we're in get all videoGames function!")
         const videoGames = await getAllVideoGames();
         res.send(videoGames);
     } catch (error) {
         next(error);
+        console.error("error")
     }
 });
 
 // GET - /api/video-games/:id - get a single video game by id
 router.get('/:id', async (req, res, next) => {
     try {
-        const videoGame = await getVideoGameById(REPLACE_ME);
+        const id = req.params.id;
+        console.log("ID:", id);
+        const videoGame = await getVideoGameById(id);
         res.send(videoGame);
     } catch (error) {
         next(error);
@@ -32,6 +36,7 @@ router.get('/:id', async (req, res, next) => {
 // POST - /api/video-games - create a new video game
 router.patch('/', async (req, res, next) => {
     // LOGIC GOES HERE 
+    
 });
 
 
